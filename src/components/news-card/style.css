@@ -1,0 +1,33 @@
+.news-card__main-container{
+    display: flex;
+    flex-direction: column;
+    border: 0.2px solid black;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+}
+.news-card__header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+
+}
+.news-card__img{    
+    margin-top: 0.5rem;
+    width: 250px;
+    height: 150px;
+    border-radius: 50%;
+}
+.news-card__title{
+    width: 50%;
+    padding-left: 3rem;
+}
+.news-card__description{
+    width: 100%;
+}
