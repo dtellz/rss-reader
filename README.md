@@ -5,7 +5,7 @@
     Position: Frontend Junior
 
 
-![tesla](https://github.com/dtellz/rss-reader/blob/feature/front/src/assets/tesla.png?raw=true)
+![tesla](https://github.com/dtellz/rss-reader/blob/feature/master/src/assets/tesla.png?raw=true)
 
 
 ## 1.- INTRODUCING [https://newsapi.org ](https://newsapi.org ) 
