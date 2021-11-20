@@ -1,0 +1,55 @@
+.news-card__main-container{
+    display: flex;
+    flex-direction: column;
+    border: 0.2px solid black;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+
+}
+.news-card__header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+
+}
+.news-card__img{    
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    width: 220px;
+    height: 150px;
+    border-radius: 50%;
+    text-align: center;
+}
+.news-card__title{
+    width: 50%;
+    padding-left: 3rem;
+}
+.news-card__description{
+    width: 100%;
+    /* Setting a height and a hidden overflow we get max 2 lines of description at all resolutions*/
+    height: 2.3rem;
+    overflow: hidden;
+}
+
+
+  /* Ripple effect */
+.ripple {
+    background-position: center;
+    transition: background 0.8s;
+  }
+  .ripple:hover {
+    background: #f7cece radial-gradient(circle, transparent 1%, #fca5a5 1%) center/15000%;
+  }
+  .ripple:active {
+    background-color: #f53b3b;
+    background-size: 100%;
+    transition: background 0s;
+  }
+  
