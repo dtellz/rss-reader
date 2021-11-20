@@ -1,6 +1,10 @@
 import './style.css';
 import { useNavigate } from 'react-router-dom';
-
+/**
+ * 
+ * @param {*} props image, title, description, url
+ * @returns a "card" showing entity related data
+ */
 const NewsCard = (props) => {
     const navigate = useNavigate();
     const handleClick = () => {
