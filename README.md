@@ -7,8 +7,12 @@
 
 ![tesla](https://github.com/dtellz/rss-reader/blob/master/src/assets/tesla.png?raw=true)
 
+## 1.- INTRODUCTION:
 
-## 1.- INTRODUCING [https://newsapi.org ](https://newsapi.org ) 
+Following KISS, DRY principles and Atomic Design pattern I have developed this front-end reactive RSS reader using React as development Javascript library. Code is published in github following a trunk-based source-control branching model with a main branch and a develop working branch.
+
+Material UI is used as component library and react-router as client-side routing.
+## 2.- INTRODUCING [https://newsapi.org ](https://newsapi.org ) 
 
 In order to understand server responses and how we manipulate it when we fetch its endpoint we need to read NewsAPI documentations which can be found [here ](https://newsapi.org/docs) 
 
@@ -25,11 +29,7 @@ const DATE = new Date();
 const TODAY = DATE.getFullYear() + '-' + DATE.getMonth() + '-' + DATE.getDate();
 ```
 
-## 2.- INTRODUCTION:
 
-Following KISS principle and Atomic Design pattern I have developed this front-end reactive RSS reader using React as development Javascript library. Code is published in github following a trunk-based source-control branching model with a main branch and a develop working branch.
-
-Material UI is used as component library and react-router as client-side routing.
 
 ## 3.- COMPONENTS:
 
