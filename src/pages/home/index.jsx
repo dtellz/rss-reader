@@ -17,11 +17,13 @@ const Home = () => {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         if (!isSearching) {
             fetch(`https://newsapi.org/v2/everything?q=tesla&from=2021-10-20&language=en&sortBy=publishedAt&apiKey=${APIKEY}`)
                 .then(res => res.json())
                 .then(data => {
                     setFeed(data);
+                    console.log(data);
                 })
             console.log('API called');
         }
@@ -34,9 +36,9 @@ const Home = () => {
             <SearchBar updateSearch={handleSearch} />
 
             {searchedFeed ? searchedFeed.map((e, i) => {
-                return <NewsCard image={e.urlToImage} title={e.title} description={e.description} key={i}></NewsCard>
+                return <NewsCard image={e.urlToImage} title={e.title} description={e.description} url={e.url} key={i}></NewsCard>
             }) : feed?.articles.map((e, i) => {
-                return <NewsCard image={e.urlToImage} title={e.title} description={e.description} key={i}></NewsCard>
+                return <NewsCard image={e.urlToImage} title={e.title} description={e.description} url={e.url} key={i}></NewsCard>
             })}
 
         </Fragment>

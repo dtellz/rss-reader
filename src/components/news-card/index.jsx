@@ -1,9 +1,13 @@
 import './style.css';
-
+import { useNavigate } from 'react-router-dom';
 
 const NewsCard = (props) => {
+    const navigate = useNavigate();
+    const handleClick = () => {
 
-    const handleClick = () => { }
+        navigate(`/news?image=${props.image}&title=${props.title}&description=${props.description}&url=${props.url}`)
+
+    }
 
     return (
         <div className='news-card__main-container ripple' onClick={handleClick}>
@@ -18,6 +22,8 @@ const NewsCard = (props) => {
 
 
 export default NewsCard;
+
+// content={e.content} url={e.url}
 
 
 
