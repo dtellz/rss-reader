@@ -1,34 +1,41 @@
 import { Fragment, useState, useEffect } from "react";
 import NewsCard from '../../components/news-card'
-import Header from '../../components/header'
 import SearchBar from '../../components/search-bar'
 
-
-const APIKEY = '1a2782dd15144317aa989d5fba626d6b';
+const APIKEY = '1a2782dd15144317aa989d5fba626d6b'; // News API https://newsapi.org set to .env for production deploy
 
 const Home = () => {
 
     const [feed, setFeed] = useState();
+    const [isSearching, setIsSearching] = useState(false);
+    const [searchedFeed, setSearchedFeed] = useState();
 
+    const handleSearch = (val) => {
+        setIsSearching(true);
+        let search = feed.articles.filter(e => e.title.toLowerCase().includes(val.toLowerCase()));
+        setSearchedFeed(search);
+    }
 
-
-    /*     useEffect(() => {
+    useEffect(() => {
+        if (!isSearching) {
             fetch(`https://newsapi.org/v2/everything?q=tesla&from=2021-10-20&language=en&sortBy=publishedAt&apiKey=${APIKEY}`)
                 .then(res => res.json())
                 .then(data => {
                     setFeed(data);
                 })
-        }, []) */
+            console.log('API called');
+        }
+    }, [])
 
 
     return (
         <Fragment>
 
-            <Header />
+            <SearchBar updateSearch={handleSearch} />
 
-            <SearchBar />
-
-            {feed?.articles.map((e, i) => {
+            {searchedFeed ? searchedFeed.map((e, i) => {
+                return <NewsCard image={e.urlToImage} title={e.title} description={e.description} key={i}></NewsCard>
+            }) : feed?.articles.map((e, i) => {
                 return <NewsCard image={e.urlToImage} title={e.title} description={e.description} key={i}></NewsCard>
             })}
 
