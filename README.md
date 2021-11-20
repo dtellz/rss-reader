@@ -12,158 +12,53 @@
 
 In order to understand server responses and how we manipulate it when we fetch its endpoint we need to read NewsAPI documentations which can be found [here ](https://newsapi.org/docs) 
 
-All endpoints follow the same structure: https://swapi.dev/api/entity/id
+In order to get the most recent news mentioning tesla (from over 80.000 sources) we fetch this endpoint 
 
-### PEOPLE:
+```javascript
+https://newsapi.org/v2/everything?q=tesla&from=${TODAY}&language=en&sortBy=publishedAt&apiKey=${APIKEY}`
+```
 
-    {
-        "birth_year": "19 BBY",
-        "eye_color": "Blue",
-        "gender": "Male",
-        "hair_color": "Blond",
-        "height": "172",
-        "mass": "77",
-        "name": "Luke Skywalker",
-    }
-### FILMS:
-    {
-        "director": "George Lucas",
-        "episode_id": 4,
-        "opening_crawl": "It is a period of civil war.\n\nRebel spaceships, striking\n\nfrom a hidden base, have won\n\ntheir first victory against\n\nthe evil Galactic Empire.\n\n\n\nDuring the battle, Rebel\n\nspies managed to steal secret\r\nplans to the Empire's\n\nultimate weapon, the DEATH\n\nSTAR, an armored space\n\nstation with enough power\n\nto destroy an entire planet.\n\n\n\nPursued by the Empire's\n\nsinister agents, Princess\n\nLeia races home aboard her\n\nstarship, custodian of the\n\nstolen plans that can save her\n\npeople and restore\n\nfreedom to the galaxy....",
-        "producer": "Gary Kurtz, Rick McCallum",
-        "release_date": "1977-05-25",
-        "title": "A New Hope",
-    }
+where APIKEY is the given key from the API and TODAY is a built and formated date followin API requirements from it [documentation](https://newsapi.org/docs) 
 
-### STARSHIPS:
-
-    {
-        "MGLT": "10 MGLT",
-        "cargo_capacity": "1000000000000",
-        "consumables": "3 years",
-        "cost_in_credits": "1000000000000",
-        "crew": "342953",
-        "hyperdrive_rating": "4.0",
-        "length": "120000",
-        "manufacturer": "Imperial Department of Military Research, Sienar Fleet Systems",
-        "max_atmosphering_speed": "n/a",
-        "model": "DS-1 Orbital Battle Station",
-        "name": "Death Star",
-        "passengers": "843342",
-        "starship_class": "Deep Space Mobile Battlestation",
-    }
-
-### VEHICLES:
-
-    {
-        "cargo_capacity": "50000",
-        "consumables": "2 months",
-        "cost_in_credits": "150000",
-        "crew": "46",
-        "length": "36.8",
-        "manufacturer": "Corellia Mining Corporation",
-        "max_atmosphering_speed": "30",
-        "model": "Digger Crawler",
-        "name": "Sand Crawler",
-        "passengers": "30",
-        "vehicle_class": "wheeled"
-    }
-
-
-### SPECIES:
-
-    {
-        "average_height": "2.1",
-        "average_lifespan": "400",
-        "classification": "Mammal",
-        "designation": "Sentient",
-        "language": "Shyriiwook",
-        "name": "Wookie",
-        "skin_colors": "gray",
-    }
-
-### PLANETS:
-
-    {
-        "climate": "Arid",
-        "diameter": "10465",
-        "gravity": "1",
-        "name": "Tatooine",
-        "orbital_period": "304",
-        "population": "120000",
-        "rotation_period": "23",
-        "surface_water": "1",
-        "terrain": "Dessert",
-    }
+```javascript
+const DATE = new Date();
+const TODAY = DATE.getFullYear() + '-' + DATE.getMonth() + '-' + DATE.getDate();
+```
 
 ## 2.- INTRODUCTION:
 
-Following KISS principle and Atomic Design pattern I have developed this front-end reactive SPA using React as development Javascript library. Code is published in github following a trunk-based source-control branching model with a main branch and a feature/front working branch.
+Following KISS principle and Atomic Design pattern I have developed this front-end reactive RSS reader using React as development Javascript library. Code is published in github following a trunk-based source-control branching model with a main branch and a develop working branch.
 
 Material UI is used as component library and react-router as client-side routing.
 
 ## 3.- COMPONENTS:
 
-Cards
+### Header
 
-	Props: info
-	Since every entity has a different data composition I decides to used different card-styled components for each of them. They all share a style.css file having a shared class ‘card’ and a distinct one ‘<entity>’ for different shapes.
-	All of them receive its related information from the API response and are called from Data-grid component. The different cards are:
+	It is a dumb component showing Tesla logo which works as a redirect link to homepage
 
-	Film	
-	People
-	Planet
-	Specie
-	Starship
-	Vehicle
-
-Data-grid
+### News-card
 
 	Props: 
-data -> API response
-entity -> Entity searched
+        image -> url to the image of the news article
+        title -> news headline
+        description -> a summary of the new
+        url -> url the source 
 
-Depending of the entity prop it will call its related card passing it data elements using a .map function to generate all cards.
+    As a smart component it will display a "card" type view panel showing its entity related data.
 
 		
-Footer
+### Search-bar
 
-	Dumb component showing a centered image
-
-
-
-
-Header
-
-	Dumb component showing an image on its left side which acts as a link when clicked to ‘/home’
-
-Inputs
-
-	LogButton
-	
-	Only displayed after a search is made, it opens a modal with the recent search logs displayed via the ‘search-log’ component.
-
-	Select
-	Main search input, user is offered to search by entity. When a selection is done, it executes its father callback function prop ‘selected’ sending him the selected input value.
-
-Search-form
-
-	It displays Select component and Log-btn. Via a useEffect react-hook which depends on the searchedEntity which can be changed via the select Component it fetches the API and sends the data to its parent component via dataFlow callback function prop.
-
-Search-log
-
-	It retrieves information from localStorage and use state variables to save the data in case it exists. When all the data is logged it is sorted to show it starting from the most recent search. It displays the log and when the user clicks on any of the logs the component redirects to load page sending the key value of the localStorage item in order to retrieve the data on the page and display it.
-
-Custom Hook : useWisdom
-	
-	It is a simple custom hook to retrieve a random phrase for the initial render of the home page
-
-
+    Its main function is to get the users input and on an onChange event send the input to its parent component. It is a material-ui standar textField.
 ## 4.- PAGES
 
-Home
-	It is the main page, it can be accessed via ‘/home’ path with or without a path param ‘/home/:query’.
+### Home
+	It is the main page, it can be accessed via ‘/home’.
 
-	Accessed via ‘/home’ it will on first render display a random phrase from star wars movies and a select input to make a search by entity. When an entity is selected if will fetch the API and display the related response. 
+	Accessed via ‘/home’ it will on first render display the latest 20 news articles received from the API. It will store the data on a state variable in order to use it as a filtering structure to show searched news. 
 
-	Accessed via ‘/home/:query’, if query is an accepted parameter it will read from localStorage and display the logged data without any AJAX request.
+
+### Article
+    Its function is to display one news article selected by the user. You can reach this page by clicking one of the cards in the home page. It will receive the data to display via query params and display it for a better view of the article. You can always go back to home clicking tesla logo on the header.
+

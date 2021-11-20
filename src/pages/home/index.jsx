@@ -19,7 +19,10 @@ const Home = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
         if (!isSearching) {
-            fetch(`https://newsapi.org/v2/everything?q=tesla&from=2021-10-20&language=en&sortBy=publishedAt&apiKey=${APIKEY}`)
+            const DATE = new Date();
+            const TODAY = DATE.getFullYear() + '-' + DATE.getMonth() + '-' + DATE.getDate();
+
+            fetch(`https://newsapi.org/v2/everything?q=tesla&from=${TODAY}&language=en&sortBy=publishedAt&apiKey=${APIKEY}`)
                 .then(res => res.json())
                 .then(data => {
                     setFeed(data);
@@ -28,6 +31,8 @@ const Home = () => {
             console.log('API called');
         }
     }, [])
+
+
 
 
     return (
