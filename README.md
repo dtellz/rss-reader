@@ -58,5 +58,7 @@ Material UI is used as component library and react-router as client-side routing
 
 	Accessed via ‘/home’ it will on first render display the latest 20 news articles received from the API. It will store the data on a state variable in order to use it as a filtering structure to show searched news. 
 
+
 ### Article
     Its function is to display one news article selected by the user. You can reach this page by clicking one of the cards in the home page. It will receive the data to display via query params and display it for a better view of the article. You can always go back to home clicking tesla logo on the header.
+
