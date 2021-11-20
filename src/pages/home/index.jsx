@@ -1,5 +1,6 @@
 import { Fragment, useState, useEffect } from "react";
 import NewsCard from '../../components/news-card'
+import Header from '../../components/header'
 
 
 const APIKEY = '1a2782dd15144317aa989d5fba626d6b';
@@ -10,19 +11,19 @@ const Home = () => {
 
 
 
-    useEffect(() => {
-        fetch(`https://newsapi.org/v2/everything?q=tesla&from=2021-10-20&language=en&sortBy=publishedAt&apiKey=${APIKEY}`)
-            .then(res => res.json())
-            .then(data => {
-                setFeed(data);
-            })
-    }, [])
+    /*     useEffect(() => {
+            fetch(`https://newsapi.org/v2/everything?q=tesla&from=2021-10-20&language=en&sortBy=publishedAt&apiKey=${APIKEY}`)
+                .then(res => res.json())
+                .then(data => {
+                    setFeed(data);
+                })
+        }, []) */
 
 
     return (
         <Fragment>
 
-            <header>Header</header>
+            <Header />
 
             {feed?.articles.map((e, i) => {
                 return <NewsCard image={e.urlToImage} title={e.title} description={e.description} key={i}></NewsCard>

@@ -20,7 +20,8 @@
 }
 .news-card__img{    
     margin-top: 0.5rem;
-    width: 250px;
+    margin-left: 0.5rem;
+    width: 220px;
     height: 150px;
     border-radius: 50%;
 }

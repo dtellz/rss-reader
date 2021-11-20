@@ -1,0 +1,11 @@
+.header__main{
+    height: 200px;
+    background-color: black;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header__logo{
+    height: 100px;
+}
