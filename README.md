@@ -1,70 +1,169 @@
-# Getting Started with Create React App
+# Project name: rss-reader 
+        
+    Developer: Diego Téllez Barrero
+    Requirements: Inteligenz
+    Position: Frontend Junior
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![tesla](https://github.com/dtellz/ress-reader/blob/feature/front/src/assets/tesla.png?raw=true)
 
-In the project directory, you can run:
 
-### `yarn start`
+## 1.- INTRODUCING [https://newsapi.org ](https://newsapi.org ) 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In order to understand server responses and how we manipulate it when we fetch its endpoint we need to read NewsAPI documentations which can be found [here ](https://newsapi.org/docs) 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+All endpoints follow the same structure: https://swapi.dev/api/entity/id
 
-### `yarn test`
+### PEOPLE:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    {
+        "birth_year": "19 BBY",
+        "eye_color": "Blue",
+        "gender": "Male",
+        "hair_color": "Blond",
+        "height": "172",
+        "mass": "77",
+        "name": "Luke Skywalker",
+    }
+### FILMS:
+    {
+        "director": "George Lucas",
+        "episode_id": 4,
+        "opening_crawl": "It is a period of civil war.\n\nRebel spaceships, striking\n\nfrom a hidden base, have won\n\ntheir first victory against\n\nthe evil Galactic Empire.\n\n\n\nDuring the battle, Rebel\n\nspies managed to steal secret\r\nplans to the Empire's\n\nultimate weapon, the DEATH\n\nSTAR, an armored space\n\nstation with enough power\n\nto destroy an entire planet.\n\n\n\nPursued by the Empire's\n\nsinister agents, Princess\n\nLeia races home aboard her\n\nstarship, custodian of the\n\nstolen plans that can save her\n\npeople and restore\n\nfreedom to the galaxy....",
+        "producer": "Gary Kurtz, Rick McCallum",
+        "release_date": "1977-05-25",
+        "title": "A New Hope",
+    }
 
-### `yarn build`
+### STARSHIPS:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    {
+        "MGLT": "10 MGLT",
+        "cargo_capacity": "1000000000000",
+        "consumables": "3 years",
+        "cost_in_credits": "1000000000000",
+        "crew": "342953",
+        "hyperdrive_rating": "4.0",
+        "length": "120000",
+        "manufacturer": "Imperial Department of Military Research, Sienar Fleet Systems",
+        "max_atmosphering_speed": "n/a",
+        "model": "DS-1 Orbital Battle Station",
+        "name": "Death Star",
+        "passengers": "843342",
+        "starship_class": "Deep Space Mobile Battlestation",
+    }
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### VEHICLES:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    {
+        "cargo_capacity": "50000",
+        "consumables": "2 months",
+        "cost_in_credits": "150000",
+        "crew": "46",
+        "length": "36.8",
+        "manufacturer": "Corellia Mining Corporation",
+        "max_atmosphering_speed": "30",
+        "model": "Digger Crawler",
+        "name": "Sand Crawler",
+        "passengers": "30",
+        "vehicle_class": "wheeled"
+    }
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### SPECIES:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    {
+        "average_height": "2.1",
+        "average_lifespan": "400",
+        "classification": "Mammal",
+        "designation": "Sentient",
+        "language": "Shyriiwook",
+        "name": "Wookie",
+        "skin_colors": "gray",
+    }
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### PLANETS:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    {
+        "climate": "Arid",
+        "diameter": "10465",
+        "gravity": "1",
+        "name": "Tatooine",
+        "orbital_period": "304",
+        "population": "120000",
+        "rotation_period": "23",
+        "surface_water": "1",
+        "terrain": "Dessert",
+    }
 
-## Learn More
+## 2.- INTRODUCTION:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Following KISS principle and Atomic Design pattern I have developed this front-end reactive SPA using React as development Javascript library. Code is published in github following a trunk-based source-control branching model with a main branch and a feature/front working branch.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Material UI is used as component library and react-router as client-side routing.
 
-### Code Splitting
+## 3.- COMPONENTS:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Cards
 
-### Analyzing the Bundle Size
+	Props: info
+	Since every entity has a different data composition I decides to used different card-styled components for each of them. They all share a style.css file having a shared class ‘card’ and a distinct one ‘<entity>’ for different shapes.
+	All of them receive its related information from the API response and are called from Data-grid component. The different cards are:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+	Film	
+	People
+	Planet
+	Specie
+	Starship
+	Vehicle
 
-### Making a Progressive Web App
+Data-grid
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+	Props: 
+data -> API response
+entity -> Entity searched
 
-### Advanced Configuration
+Depending of the entity prop it will call its related card passing it data elements using a .map function to generate all cards.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+		
+Footer
 
-### Deployment
+	Dumb component showing a centered image
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `yarn build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Header
+
+	Dumb component showing an image on its left side which acts as a link when clicked to ‘/home’
+
+Inputs
+
+	LogButton
+	
+	Only displayed after a search is made, it opens a modal with the recent search logs displayed via the ‘search-log’ component.
+
+	Select
+	Main search input, user is offered to search by entity. When a selection is done, it executes its father callback function prop ‘selected’ sending him the selected input value.
+
+Search-form
+
+	It displays Select component and Log-btn. Via a useEffect react-hook which depends on the searchedEntity which can be changed via the select Component it fetches the API and sends the data to its parent component via dataFlow callback function prop.
+
+Search-log
+
+	It retrieves information from localStorage and use state variables to save the data in case it exists. When all the data is logged it is sorted to show it starting from the most recent search. It displays the log and when the user clicks on any of the logs the component redirects to load page sending the key value of the localStorage item in order to retrieve the data on the page and display it.
+
+Custom Hook : useWisdom
+	
+	It is a simple custom hook to retrieve a random phrase for the initial render of the home page
+
+
+## 4.- PAGES
+
+Home
+	It is the main page, it can be accessed via ‘/home’ path with or without a path param ‘/home/:query’.
+
+	Accessed via ‘/home’ it will on first render display a random phrase from star wars movies and a select input to make a search by entity. When an entity is selected if will fetch the API and display the related response. 
+
+	Accessed via ‘/home/:query’, if query is an accepted parameter it will read from localStorage and display the logged data without any AJAX request.
