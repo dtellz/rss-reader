@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from "react";
 import NewsCard from '../../components/news-card'
 import Header from '../../components/header'
+import SearchBar from '../../components/search-bar'
 
 
 const APIKEY = '1a2782dd15144317aa989d5fba626d6b';
@@ -24,6 +25,8 @@ const Home = () => {
         <Fragment>
 
             <Header />
+
+            <SearchBar />
 
             {feed?.articles.map((e, i) => {
                 return <NewsCard image={e.urlToImage} title={e.title} description={e.description} key={i}></NewsCard>
