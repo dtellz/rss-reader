@@ -26,9 +26,9 @@ const Home = () => {
                 .then(res => res.json())
                 .then(data => {
                     setFeed(data);
-                    console.log(data);
+                    //console.log(data);
                 })
-            console.log('API called');
+            //console.log('API called');
         }
     }, [])
 

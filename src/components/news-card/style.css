@@ -20,9 +20,10 @@
 
 }
 .news-card__img{    
+    object-fit: cover;
     margin-top: 0.5rem;
     margin-left: 0.5rem;
-    width: 180px;
+    width: 250px;
     height: 150px;
     border-radius: 50%;
     text-align: center;
