@@ -1,7 +1,7 @@
 # Project name: rss-reader 
         
     Developer: Diego Téllez Barrero
-    Requirements: Inteligenz
+    Requirements: Intelygenz
     Position: Frontend Junior
 
 
