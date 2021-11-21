@@ -1,5 +1,5 @@
 # Project name: rss-reader 
-# Project website: [https://tesla-news.herokuapp.com](https://tesla-news.herokuapp.com)    
+  
     Developer: Diego Téllez Barrero
     Requirements: Intelygenz
     Position: Frontend Junior
