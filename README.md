@@ -13,7 +13,7 @@ Following KISS, DRY principles and Atomic Design pattern I have developed this f
 
 Material UI is used as component library and react-router as client-side routing. I used Material UI simply because I am familiarized with it. React router was used in order to make the rss-reader app a SPA with 2 pages to display, the main page /home and the news page /article.
 
-In order to execute the reader you can fork or dowload the code and clone it to a local reposiutory in your computer. As an open software product you can use both npm or yarn to install project dependencies, simply execute "npm install" or "yarn install" via command line on the project root folder and after installation finishes run the app with npm start or yarn start, used your prefered package manager.
+In order to execute the reader you can fork or dowload the code and clone it to a local repository in your computer. As an open software product you can use both npm or yarn to install project dependencies, simply execute "npm install" or "yarn install" via command line on the project root folder and after installation finishes run the app with npm start or yarn start, used your prefered package manager.
 ## 2.- INTRODUCING [https://newsapi.org ](https://newsapi.org ) 
 
 In order to understand server responses and how we manipulate it when we fetch its endpoint we need to read NewsAPI documentations which can be found [here ](https://newsapi.org/docs) 
