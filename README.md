@@ -3,7 +3,7 @@
     Developer: Diego Téllez Barrero
     Requirements: Intelygenz
     Position: Frontend Junior
-    Project website: [https://tesla-news.herokuapp.com](https://tesla-news.herokuapp.com)
+    Project website: https://tesla-news.herokuapp.com
 
 
 ![tesla](https://github.com/dtellz/rss-reader/blob/master/src/assets/tesla.png?raw=true)
