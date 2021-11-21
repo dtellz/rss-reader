@@ -11,7 +11,7 @@
 
 Following KISS, DRY principles and Atomic Design pattern I have developed this front-end reactive RSS reader using React as development Javascript library. Code is published in github following a trunk-based source-control branching model with a main branch and a develop working branch.
 
-Material UI is used as component library and react-router as client-side routing.
+Material UI is used as component library and react-router as client-side routing. I used Material UI simply because I am familiarized with it. React router was used in order to make the rss-reader app a SPA with 2 pages to display, the main page /home and the news page /article
 ## 2.- INTRODUCING [https://newsapi.org ](https://newsapi.org ) 
 
 In order to understand server responses and how we manipulate it when we fetch its endpoint we need to read NewsAPI documentations which can be found [here ](https://newsapi.org/docs) 
