@@ -25,7 +25,7 @@ In order to get the most recent news mentioning tesla (from over 80.000 sources)
 https://newsapi.org/v2/everything?q=tesla&from=${TODAY}&language=en&sortBy=publishedAt&apiKey=${APIKEY}`
 ```
 
-where APIKEY is the given key from the API and TODAY is a built and formated date followin API requirements from it [documentation](https://newsapi.org/docs) 
+where APIKEY is the given key from the API and TODAY is a built and formatted date following API requirements from its [documentation](https://newsapi.org/docs) 
 
 ```javascript
 const DATE = new Date();
